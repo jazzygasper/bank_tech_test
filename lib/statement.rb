@@ -1,7 +1,9 @@
+require_relative 'transaction'
+
 class Statement
   attr_reader :history
 
-  def initialize
+  def initialize(transaction_class = Transaction)
     @history = []
   end
 
