@@ -2,28 +2,17 @@ require 'transaction'
 
 describe Transaction do
 
-  subject(:transaction) { described_class.new }
+  subject(:transaction) { described_class.new(credit, debit) }
+  let(:credit) { double :credit}
+  let(:debit) { double :debit}
 
   describe '#initialize' do
-    it 'starts with no transactions' do
-      expect(transaction.current_transaction).to be_empty
+    it 'starts with no credits made' do
+      expect(transaction.credit).to be_nil
     end
-  end
-
-  describe '#transactions' do
-    it 'can deposit' do
-      transaction.current_deposit(20, 20)
-      expect(transaction.current_transaction).to eq [{:date=>"16/05/2016",
-                                                   :credit=>20,
-                                                   :balance=>20}]
+    it 'starts with no deposits made' do
+      expect(transaction.debit).to be_nil
     end
-    it 'can withdrawl' do
-      transaction.current_withdrawl(20, 20)
-      expect(transaction.current_transaction).to eq [{:date=>"16/05/2016",
-                                                   :debit=>20,
-                                                   :balance=>20}]
-    end
-
   end
 
 end

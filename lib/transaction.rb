@@ -1,16 +1,10 @@
 class Transaction
-  attr_reader :current_transaction
+  attr_reader :date, :credit, :debit
 
-  def initialize
-    @current_transaction = []
-  end
-
-  def current_deposit(amount, balance)
-    @current_transaction = [{date: Time.now.strftime("%d/%m/%Y"), credit: amount, balance: balance}]
-  end
-
-  def current_withdrawl(amount, balance)
-    @current_transaction = [{date: Time.now.strftime("%d/%m/%Y"), debit: amount, balance: balance}]
+  def initialize(credit, debit)
+    @date = Time.now.strftime("%d/%m/%Y")
+    @credit = nil
+    @debit = nil
   end
 
 end

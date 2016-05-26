@@ -1,26 +1,25 @@
-require_relative 'transaction'
+require_relative 'statement'
 
 class Bank_Account
 
-  attr_reader :balance, :transaction
+  attr_reader :balance, :statement
 
-  def initialize(transaction = Transaction.new)
+  def initialize(statement = Statement.new)
     @balance = 0
-    @transaction = transaction
+    @statement = statement
   end
 
   def deposit(amount)
     @balance += amount
-    @transaction.current_deposit(amount, @balance)
+    @statement.current_deposit(amount, @balance)
   end
 
-  def withdraw(amount)
+  def withdrawal(amount)
     @balance -= amount
-    @transaction.current_withdrawl(amount, @balance)
+    @statement.current_withdrawl(amount, @balance)
   end
 
   def print_statement
-
   end
 
 end

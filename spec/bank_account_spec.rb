@@ -3,7 +3,7 @@ require 'bank_account'
 describe Bank_Account do
 
   subject(:account) { described_class.new }
-  let(:transaction) { double :transaction }
+  let(:statement) { double :statement }
 
   describe '#initialize' do
     it 'starts with balance of 0' do
@@ -17,7 +17,7 @@ describe Bank_Account do
     end
 
     it 'can withdraw amount from existing balance' do
-      expect{ account.withdraw(20) }.to change{ account.balance }.by (-20)
+      expect{ account.withdrawal(20) }.to change{ account.balance }.by (-20)
     end
   end
 
